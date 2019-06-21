@@ -7,12 +7,12 @@
 ![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/bloc_im.png)
 
 
-![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/mfh_im1.png)
+![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/mfh_im1.jpg)
 
-![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/mfh_im2.png)
+![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/mfh_im2.jpg)
 
 
-![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/mfh_im3.png)
+![image](https://github.com/xwbbwx110/xwb_mfh/blob/master/mfh_im3.jpg)
 
 
 
