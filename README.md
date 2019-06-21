@@ -2,15 +2,10 @@
 
 学习flutter仿马蜂窝app
 
-## Getting Started
+项目会采用bloc编写，采用数据状态和UI显示分离，同时使用RxDart来做事件的全局以及局部分发
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Assets/bloc_im.png
 
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+
