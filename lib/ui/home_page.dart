@@ -124,6 +124,46 @@ class SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   double get minExtent => 50.0;
 }
 
+
+
+class SliverTabItemDelegate extends SliverPersistentHeaderDelegate {
+  final Widget widget;
+  final Color color;
+   BuildContext context;
+
+
+  double getHeight(BuildContext context) {
+    return MediaQuery.of(context).size.height;
+  }
+
+   SliverTabItemDelegate(this.widget, {this.color})
+      : assert(widget != null);
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+
+    this.context = context;
+
+
+    return widget;
+  }
+
+  @override
+  bool shouldRebuild(SliverTabItemDelegate oldDelegate) {
+    return false;
+  }
+
+  @override
+  double get maxExtent => 130.0;
+
+  @override
+  double get minExtent => 130.0;
+}
+
+
+
+
 class MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
   //lunbo
@@ -173,7 +213,8 @@ class MainPageState extends State<MainPage>
 
   Widget BuildHomeTab() {
     return Container(
-      margin: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.only(left: 10.0,top: 10.0,right: 10.0),
+      color: Colors.white,
       child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: _homeTab.map((item) {
@@ -332,19 +373,17 @@ class MainPageState extends State<MainPage>
 
     Widget BuildContent() {
       return Container(
-        margin: EdgeInsets.only(top: 10.0,left: 5.0),
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: new BorderRadius.circular(14.0),
-              boxShadow: [
-                BoxShadow(
-                    color: const Color(0x4D6E6E6E),
-                    offset: Offset(0.0, 3.0) ,
-                    blurRadius: 4.0,
-                )
-              ]
-
-          ),
+        margin: EdgeInsets.only(top: 10.0, left: 5.0),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: new BorderRadius.circular(14.0),
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0x4D6E6E6E),
+                offset: Offset(0.0, 3.0),
+                blurRadius: 4.0,
+              )
+            ]),
         child: ClipRRect(
           borderRadius: new BorderRadius.all(new Radius.circular(14.0)),
           child: Column(
@@ -359,12 +398,13 @@ class MainPageState extends State<MainPage>
                   children: <Widget>[
                     Image.asset('images/mall_home_travel_note_pre.png'),
                     Text("太古里网红打卡",
-                        style: TextStyle(color: Colors.lightBlue, fontSize: 12.0))
+                        style:
+                            TextStyle(color: Colors.lightBlue, fontSize: 12.0))
                   ],
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 4.0,right: 4.0),
+                padding: EdgeInsets.only(left: 4.0, right: 4.0),
                 child: Text(
                   "太古里春熙路又非常多的美女小姐姐哦，个个都是贼好看，还有钱，还有大长腿",
                   style: TextStyle(color: Colors.black, fontSize: 13.0),
@@ -392,18 +432,18 @@ class MainPageState extends State<MainPage>
                         maxLines: 3,
                       ),
                       Expanded(
-                        flex: 1,
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: Image.asset('images/icon_heart_m_s.png',width: 20,height: 20,),
-                        )
-                      ),
+                          flex: 1,
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Image.asset(
+                              'images/icon_heart_m_s.png',
+                              width: 20,
+                              height: 20,
+                            ),
+                          )),
                       Text(" 84",
                           textAlign: TextAlign.right,
-                          style:
-                          TextStyle(color: Colors.grey,
-                              fontSize: 12.0
-                          ))
+                          style: TextStyle(color: Colors.grey, fontSize: 12.0))
                     ],
                   ))
             ],
@@ -480,7 +520,12 @@ class MainPageState extends State<MainPage>
               ],
             ),
           ),
-          SliverToBoxAdapter(child: BuildHomeTab()),
+//          SliverToBoxAdapter(child: BuildHomeTab()),
+
+          SliverPersistentHeader(
+            delegate: SliverTabItemDelegate(BuildHomeTab(),color: Colors.white),
+            pinned: true,
+          ),
           SliverPersistentHeader(
             delegate: SliverTabBarDelegate(
                 Row(
