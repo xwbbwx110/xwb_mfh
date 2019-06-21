@@ -1,6 +1,6 @@
 # xwb_mfh
 
-A new Flutter application.
+学习flutter仿马蜂窝app
 
 ## Getting Started
 
